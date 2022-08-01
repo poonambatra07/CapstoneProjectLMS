@@ -1,0 +1,19 @@
+<div class="card">
+<div class="card-header">
+    <strong>Cart</strong>
+</div>
+<div *ngIf="cartItems.length==0" class="alert alert-info">
+    Your Cart is Empty
+</div>
+<ul *ngIf="cartItems.length>0" class="list-group">
+    <li class="list-group-item" *ngFor="let item of cartItems">
+        <app-cart-item-list [cartItems]=item></app-cart-item-list>
+    </li>
+    <li class="list-group-item active">
+        <strong>Total: {{cartTotal | currency: "INR"}}</strong>
+    </li>
+    <button routerLink="/checkout" class="btn " *ngIf="currentRoute!=='checkout'">
+        <strong>Place Order</strong>
+    </button>
+</ul>
+</div>

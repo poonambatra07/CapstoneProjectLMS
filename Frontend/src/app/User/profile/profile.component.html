@@ -1,0 +1,88 @@
+<div class="row ">
+  <div class="card filters card-header col-md-8">
+    <h3 >Profile</h3> 
+</div>
+    <div class="col-md-8 card filters fontMy" *ngFor="let user of userData ">
+        <main class="form-signin">
+
+            <div class="p-5 mb-2  rounded-3" >
+                <div class="container-fluid py-5" >
+                  <div class="py-1 mb-2" >
+                   <p class="col-md-8 fs-4"><strong> Name</strong>:{{user.firstname}} {{user.lastname}}</p>
+                  <p class="col-md-8 fs-4"><strong>Address</strong>:{{user.address}}</p>
+                  <p class="col-md-8 fs-4"><strong>Email</strong>:{{user.email}}</p>
+                  <p class="col-md-8 fs-4"><strong>Phone Number:</strong>:{{user.phone}}</p> 
+                  <p class="col-md-8 fs-4"><strong>Account Balance:</strong>:{{user.amount}}</p> 
+                  <p class="col-md-8 fs-4"><button type="button" class="w-100 btn btn-lg btn-primary" (click)="EditClick()">Edit Profile</button></p>              
+                  </div>
+              
+                </div>
+             </div>
+            <div *ngIf="showForm">
+            <form #editForm="ngForm" (ngSubmit)="editProfile(editForm)">
+              <h1 class="h3 mb-3 fw-normal">Edit Profile </h1>
+             
+              <div class="form-floating">
+                <input type="text" class="form-control " [ngClass]="{'is-invalid':editForm.controls['firstname']?.invalid && editForm.controls['firstname']?.untouched}" 
+                [ngModel]="user.firstname" 
+                name="firstname"  
+                placeholder="Name"
+                 required>
+                <label for="floatingInput">First Name</label>
+                <span class="invalid-feedback">First name can't be empty.</span>
+              </div>
+              <div class="form-floating">
+                <input type="text" class="form-control"
+                  [ngClass]="{'is-invalid':editForm.controls['lastname']?.invalid && editForm.controls['lastname']?.untouched}" 
+                  name="lastname" 
+                  [ngModel]="user.lastname"  
+                  placeholder="LastName" required>
+                <label for="floatingInput">Last Name</label>
+                <span class="invalid-feedback">Last name can't be empty.</span>
+              </div>
+              <div class="form-floating">
+                <input type="text" class="form-control" 
+                [ngClass]="{'is-invalid':editForm.controls['address']?.invalid && editForm.controls['address']?.untouched}" 
+                name="address" 
+                [ngModel]="user.address"  required >
+                <label for="floatingInput">Address</label>
+                <span class="invalid-feedback">Address  can't be empty.</span>
+              </div>
+              <div class="form-floating">
+                <input type="number" 
+                class="form-control" 
+                name="phone" 
+                [ngClass]="{'is-invalid':editForm.controls['phone']?.invalid && editForm.controls['phone']?.untouched}" 
+                [ngModel]="user.phone" required>
+                <label for="floatingInput">Phone</label>
+                <span class="invalid-feedback">Phone  can't be empty.</span>
+              </div>
+             
+              <div class="form-floating">
+                <input type="password" class="form-control" 
+                name="password" [ngClass]="{'is-invalid':editForm.controls['password']?.invalid && editForm.controls['password']?.untouched}" 
+                [ngModel]="user.password" required placeholder="Password">
+                <label for="floatingPassword">Password</label>
+                <span class="invalid-feedback">Password can't be empty.</span>
+              </div>
+              <div class="form-floating">
+               &nbsp;
+              </div>
+              <div class="form-floating">
+                <input type="number" 
+                class="form-control" 
+                name="amount" 
+                [ngClass]="{'is-invalid':editForm.controls['amount']?.invalid && editForm.controls['amount']?.untouched}" 
+                [ngModel]="user.amount" required>
+                <label for="floatingInput">Account Balance</label>
+                <span class="invalid-feedback">Amount  can't be empty.</span>
+              </div>
+          
+              <button class="w-100 btn btn-lg btn-primary" type="submit" [disabled]="editForm.invalid">Update Profile</button>  
+            </form>
+          </div>
+          </main>
+          
+    </div>
+
+</div>

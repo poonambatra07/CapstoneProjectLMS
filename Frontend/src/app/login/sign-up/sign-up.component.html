@@ -1,0 +1,50 @@
+<div class="row">
+    <!-- <div class="col col-2">
+        <app-filters></app-filters>
+    </div> -->
+    <div class="card filters card-header col-md-8">
+        <main class="form-signin">
+            <form #registerForm="ngForm" (ngSubmit)="registerUser(registerForm)">
+              <h1 class="h3 mb-3 fw-normal">Register Here</h1>
+             
+              <div class="form-floating">
+                <input type="text" class="form-control " [ngClass]="{'is-invalid':registerForm.controls['firstname']?.invalid && registerForm.controls['firstname']?.untouched}" name="firstname" ngModel placeholder="Name" required>
+                <label for="floatingInput">First Name</label>
+                <span class="invalid-feedback">First name can't be empty.</span>
+              </div>
+              <div class="form-floating">
+                <input type="text" class="form-control"  [ngClass]="{'is-invalid':registerForm.controls['lastname']?.invalid && registerForm.controls['lastname']?.untouched}" name="lastname" ngModel placeholder="LastName" required>
+                <label for="floatingInput">Last Name</label>
+                <span class="invalid-feedback">Last name can't be empty.</span>
+              </div>
+              <div class="form-floating">
+                <input type="text" class="form-control" [ngClass]="{'is-invalid':registerForm.controls['address']?.invalid && registerForm.controls['address']?.untouched}" name="address" ngModel required >
+                <label for="floatingInput">Address</label>
+                <span class="invalid-feedback">Address  can't be empty.</span>
+              </div>
+              <div class="form-floating">
+                <input type="number" class="form-control" name="phone" [ngClass]="{'is-invalid':registerForm.controls['phone']?.invalid && registerForm.controls['phone']?.untouched}" ngModel required>
+                <label for="floatingInput">Phone</label>
+                <span class="invalid-feedback">Phone  can't be empty.</span>
+              </div>
+              <div class="form-floating">
+                <input type="email" class="form-control" name="email" [ngClass]="{'is-invalid':registerForm.controls['email']?.invalid && registerForm.controls['email']?.untouched}" ngModel required placeholder="name@example.com">
+                <label for="floatingInput">Email address</label>
+                <span class="invalid-feedback">Email can't be empty.</span>
+              </div>
+              <div class="form-floating">
+                <input type="password" class="form-control" name="password" [ngClass]="{'is-invalid':registerForm.controls['password']?.invalid && registerForm.controls['password']?.untouched}" ngModel required placeholder="Password">
+                <label for="floatingPassword">Password</label>
+                <span class="invalid-feedback">Password can't be empty.</span>
+              </div>
+              <div class="form-floating">
+               &nbsp;
+              </div>
+          
+              <button class="w-100 btn btn-lg btn-primary" type="submit" [disabled]="registerForm.invalid">Register</button>
+              <a class="me-3 py-2 text-dark text-decoration-none" routerLink="/login"><p class="mt-5 mb-3 text-primary">Already have account? Sign in</p></a>   
+            </form>
+          </main>
+          
+    </div>
+  </div>

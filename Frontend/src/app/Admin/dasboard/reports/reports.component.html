@@ -1,0 +1,107 @@
+<div class="nav-scroller py-1 mb-2">
+    <nav class="nav d-flex justify-content-between">
+      <a class="p-2 link-secondary" routerLink="/dashboard">Products</a>
+      <a class="p-2 link-secondary" routerLink="/add-product">Add Products</a>
+      <a class="p-2 link-secondary" routerLink="/users">Users</a>
+      <a class="p-2 link-secondary" routerLink="/orders">Orders</a>
+      <a class="p-2 link-secondary" routerLink="/reports">Reports</a>
+    </nav>
+  </div>
+  <div class="p-5 mb-2 bg-light rounded-3" ><h1 class="display-5 fw-bold">Generate Reports</h1></div>
+  <div class="p-5 mb-2 bg-light rounded-3" >
+    <div class="container-fluid py-5">
+      <div class="py-1 mb-2" >
+        
+        <p class="col-md-8 fs-4">
+            <!-- <select  (change)="onChange($event.target.value)">
+            <option value="">Select </option>
+            <option value="O">All Orders</option>
+            <option value="U">All users</option>
+            <option value="P">All Products</option>
+
+        </select> -->
+    
+        <select [ngModel]="selectedDevice" (ngModelChange)="onChange($event)" name="sel2">
+            <option value="">Select </option>
+            <option value="O">All Orders</option>
+            <option value="U">All users</option>
+            <option value="P">All Products</option>
+        </select>
+
+    </p> 
+
+
+      </div>
+  
+    </div>
+    </div>
+
+    <div class="p-5 mb-2 bg-light rounded-3"  *ngIf="selectedDevice==='O'">
+        <h1 class="display-5 fw-bold"> Order Details</h1>
+        <div>
+            <p>Total: {{Totalcount}}</p>
+            <table border="1" cellpadding="1px" cellspacing="2px" >
+                <tr>
+                    <td>Order Id</td>
+                    <td>order Amonut</td>
+                    <td>Order Date</td>
+                    <td>Order Details</td>
+                </tr>
+                <tr *ngFor="let order of orderdata">
+                    <td>{{order._id}}</td>
+                    <td>{{order.amount}}</td>
+                    <td>{{order.Date}}</td>
+                    <td><a routerLink="/orders">View Detail</a></td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+    <div class="p-5 mb-2 bg-light rounded-3"  *ngIf="selectedDevice==='P'">
+        <h1 class="display-5 fw-bold"> Product Details</h1>
+        <div>
+            <p>Total: {{Totalcount}}</p>
+            <table border="1" cellpadding="1px" cellspacing="2px" >
+                <tr>
+                    <td>Product Id</td>
+                    <td>Product Name</td>
+                    <td> Product price</td>
+                    <td> Product Brand</td>
+                    <td>Product Details</td>
+                </tr>
+                <tr *ngFor="let product of proddata">
+                    <td>{{product._id}}</td>
+                    <td>{{product.name}}</td>
+                    <td>{{product.price}}</td>
+                    <td>{{product.brand}}</td>
+                    <td><a routerLink="/dashboard">View Detail</a></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="p-5 mb-2 bg-light rounded-3"  *ngIf="selectedDevice==='U'">
+        <h1 class="display-5 fw-bold"> User Details</h1>
+        <div>
+            <p>Total: {{Totalcount}}</p>
+            <table border="1" cellpadding="1px" cellspacing="2px" >
+                <tr>
+                    <td>User Id</td>
+                    <td>User Name</td>
+                    <td> user email</td>
+                    <td> user phone</td>
+                   
+                </tr>
+                <tr *ngFor="let user of userdata">
+                    <td>{{user._id}}</td>
+                    <td>{{user.firstname}} {{user.lastname}}</td>
+                    <td>{{user.email}}</td>
+                    <td>{{user.phone}}</td>
+                    
+                    <td><a routerLink="/users">View Detail</a></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+        
+  
+

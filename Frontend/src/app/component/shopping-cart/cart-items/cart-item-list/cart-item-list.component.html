@@ -1,0 +1,9 @@
+<div class="cart-item" id={{cartItems._id}}>
+    
+    <span>{{cartItems.productName}} *{{cartItems.qty}}=
+    <span>
+        <strong>{{(cartItems.qty*cartItems.price) | currency:"INR"}}</strong>
+    </span>
+    <span style="padding-left:20px;cursor: pointer; color: red;" (click)="deleteCart(cartItems._id);"><strong>X</strong></span>
+</span>
+</div>

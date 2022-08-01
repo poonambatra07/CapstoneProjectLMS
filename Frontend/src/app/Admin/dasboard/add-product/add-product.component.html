@@ -1,0 +1,54 @@
+<div class="nav-scroller py-1 mb-2">
+    <nav class="nav d-flex justify-content-between">
+      <a class="p-2 link-secondary" routerLink="/dashboard">Products</a>
+      <a class="p-2 link-secondary" routerLink="/add-product">Add Products</a>
+      <a class="p-2 link-secondary" routerLink="/users">Users</a>
+      <a class="p-2 link-secondary" routerLink="/orders">Orders</a>
+      <a class="p-2 link-secondary" routerLink="/reports">Reports</a>
+    </nav>
+  </div>
+    
+  <div class="col-md-8" >
+    <main class="form-signin">
+        <form #AddForm="ngForm" (ngSubmit)="Add(AddForm)" >
+          <h1 class="h3 mb-3 fw-normal">Add Product</h1>
+          <div class="form-floating">
+            <input type="number" class="form-control " ngModel [ngClass]="{'is-invalid':AddForm.controls['_id']?.invalid && AddForm.controls['_id']?.untouched}" name="_id"  placeholder="product ID" required>
+            <label for="floatingInput">Product ID</label>
+            <span class="invalid-feedback"> product id  can't be empty.</span>
+          </div>
+
+          <div class="form-floating">
+            <input type="text" class="form-control " ngModel [ngClass]="{'is-invalid':AddForm.controls['name']?.invalid && AddForm.controls['name']?.untouched}" name="name"  placeholder="Name" required>
+            <label for="floatingInput">Name</label>
+            <span class="invalid-feedback"> Name can't be empty.</span>
+          </div>
+          <div class="form-floating">
+            <input type="text" class="form-control " ngModel [ngClass]="{'is-invalid':AddForm.controls['price']?.invalid && AddForm.controls['name']?.untouched}" name="price"  placeholder="Price" required>
+            <label for="floatingInput">Price</label>
+            <span class="invalid-feedback"> Price can't be empty.</span>
+          </div>
+          <div class="form-floating">
+            <input type="text" class="form-control "  ngModel [ngClass]="{'is-invalid':AddForm.controls['description']?.invalid && AddForm .controls['description']?.untouched}" name="description"  placeholder="Description" required>
+            <label for="floatingInput">Description</label>
+            <span class="invalid-feedback"> Description can't be empty.</span>
+          </div>
+          <div class="form-floating">
+            <input type="text" class="form-control " ngModel [ngClass]="{'is-invalid':AddForm.controls['image']?.invalid && AddForm.controls['image']?.untouched}" name="image"  placeholder="Image" required>
+            <label for="floatingInput">Image</label>
+            <span class="invalid-feedback"> Image can't be empty.</span>
+          </div>
+          <div class="form-floating">
+            <input type="text" class="form-control " ngModel [ngClass]="{'is-invalid':AddForm.controls['brand']?.invalid && AddForm.controls['brand']?.untouched}" name="brand"  placeholder="brand" required>
+            <label for="floatingInput">Brand</label>
+            <span class="invalid-feedback"> Brand can't be empty.</span>
+          </div>
+        
+          <button class="w-100 btn btn-lg btn-primary" type="submit" [disabled]="AddForm.invalid">Add</button>
+          
+        </form>
+      </main>
+      
+</div>
+  
+

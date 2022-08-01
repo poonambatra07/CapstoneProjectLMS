@@ -1,0 +1,25 @@
+<div class="container">
+<div class="row">
+  <div class="col-md-8 order-md-2 mb-4">
+   
+    <div class="card filters card-header ">
+      <h3 > Wishlist Products</h3> 
+  </div>
+  <div class="card filters fontMy">
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3" *ngIf="medicine">
+    <div class="col" *ngFor="let i of medicine">
+        <app-product-items [product]="i"  [wishlistFlag]=true ></app-product-items>
+    </div>
+   
+</div>
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3" *ngIf="!medicine">
+ <span>No Wishlist Produst!!</span>
+ 
+</div>
+</div>
+</div>
+<div class="col-md-4 order-md-2 mb-4">
+<app-cart-items></app-cart-items>
+</div>
+</div>
+</div>

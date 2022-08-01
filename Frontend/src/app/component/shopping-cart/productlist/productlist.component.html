@@ -1,0 +1,6 @@
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+    <div class="col" *ngFor="let i of medicine">
+        <app-product-items [product]="i" [title]='childTitle' [wishlistFlag]="wishlistPid && wishlistPid.indexOf(i._id) >=0"></app-product-items>
+    </div>
+   
+</div>

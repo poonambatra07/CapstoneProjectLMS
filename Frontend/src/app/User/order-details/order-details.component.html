@@ -1,0 +1,32 @@
+<div class="row">
+   
+  <div class="card filters card-header col-md-8">
+    <h3 > Order Details</h3> 
+</div>
+    <div class="card filters col-md-8 fontMy" *ngFor="let item of orderData">
+        <label class=" d-flex gap-2">
+            <span>
+                Order ID:{{item.orderId}}
+                <small class="d-block text-muted">
+                    Date:{{item.date}}
+                </small>
+               
+            </span>
+        </label>
+        <div  *ngFor="let product of item.products">
+            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start ">
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1"> {{product.productName}}</h5>
+                <small>Product Price: {{product.price}}</small>
+              </div>
+             <p><img src="{{product.image}}" height="100" width="100" /></p> 
+              <!-- <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+              <small>Donec id elit non mi porta.</small> -->
+            </a>
+           
+          </div>
+    
+   
+
+</div>
+</div>

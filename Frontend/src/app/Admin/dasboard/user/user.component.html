@@ -1,0 +1,25 @@
+<div class="nav-scroller py-1 mb-2">
+    <nav class="nav d-flex justify-content-between">
+      <a class="p-2 link-secondary" routerLink="/dashboard">Products</a>
+      <a class="p-2 link-secondary" routerLink="/add-product">Add Products</a>
+      <a class="p-2 link-secondary" routerLink="/users">Users</a>
+      <a class="p-2 link-secondary" routerLink="/orders">Orders</a>
+      <a class="p-2 link-secondary" routerLink="/reports">Reports</a>
+    </nav>
+  </div>
+
+<div class="p-5 mb-2 bg-light rounded-3" ><h1 class="display-5 fw-bold">All Users</h1></div>
+<div class="p-5 mb-2 bg-light rounded-3" *ngFor="let user of users">
+    <div class="container-fluid py-5">
+      <div class="py-1 mb-2" >
+       <p class="col-md-8 fs-4"><strong> Name</strong>:{{user['firstname']}} {{user['lastname']}}</p>
+      <p class="col-md-8 fs-4"><strong>Address</strong>:{{user['address']}}</p>
+      <p class="col-md-8 fs-4"><strong>Email</strong>:{{user['email']}}</p>
+      <p class="col-md-8 fs-4"><strong>Phone Number:</strong>:{{user['phone']}}</p>
+      <p class="col-md-8 fs-4"><strong>UserType</strong>:{{user['userType']=='A'? 'Admin': 'Normal'}}</p>
+      </div>
+  
+    </div>
+    </div>
+
+ 

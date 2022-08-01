@@ -1,0 +1,38 @@
+<div class="nav-scroller py-1 mb-2">
+    <nav class="nav d-flex justify-content-between">
+      <a class="p-2 link-secondary" routerLink="/dashboard">Products</a>
+      <a class="p-2 link-secondary" routerLink="/add-product">Add Products</a>
+      <a class="p-2 link-secondary" routerLink="/users">Users</a>
+      <a class="p-2 link-secondary" routerLink="/orders">Orders</a>
+      <a class="p-2 link-secondary" routerLink="/reports">Reports</a>
+    </nav>
+  </div>
+    
+  <div class="p-5 mb-2 bg-light rounded-3" ><h1 class="display-5 fw-bold"> Order Info</h1></div>
+  <div class="p-5 mb-2 bg-light rounded-3" *ngFor="let Orders of orderData">
+    <div class="container-fluid py-5">
+      <div class="py-1 mb-2" >
+        
+        <p class="col-md-8 fs-4"><strong> Order ID</strong>:{{Orders['orderId']}}</p> 
+       <p class="col-md-8 fs-4"><strong> Order Date</strong>:{{Orders['date']}}</p>
+       <p class="col-md-8 fs-4"><strong> Order Amount</strong>:{{Orders['amount']}}</p>
+    
+       <div  *ngFor="let product of Orders.products">
+        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start ">
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1"> {{product.productName}}</h5>
+            <small>Product Id: {{product._id}}</small>
+            <small>Product Price: {{product.price}}</small>
+          </div>
+         <p><img src="{{product.image}}" height="100" width="100" /></p> 
+          <!-- <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+          <small>Donec id elit non mi porta.</small> -->
+        </a>
+       
+      </div>
+      </div>
+  
+    </div>
+    </div>
+  
+

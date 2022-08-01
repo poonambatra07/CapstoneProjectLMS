@@ -1,0 +1,25 @@
+<div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom">
+    <app-header></app-header>
+
+    <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto ">
+      <a class="me-3 py-2 text-dark text-decoration-none" routerLink="">Home</a>
+      <a *ngIf="!user"  class="me-3 py-2 text-dark text-decoration-none" routerLink="login">Login</a>
+      <a class="me-3 py-2 text-dark text-decoration-none" routerLink="about-us">About us</a>
+      <a class="me-3 py-2 text-dark text-decoration-none" routerLink="contact-us">Contact</a>
+      <a  *ngIf="user" class=" me-3 py-2  text-dark text-decoration-none dropdown-toggle" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+        My Account
+         </a>
+         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+         <li><a class="dropdown-item" routerLink="profile">Profile</a></li>
+         <li><a class="dropdown-item" routerLink="myorder">My Orders</a></li>
+         <li><a class="dropdown-item" routerLink="wishlist">My Wishlist</a></li>
+         </ul>
+      <a *ngIf="user" class="me-3 py-2 text-dark text-decoration-none" (click)="logoutUser()">Logout</a>
+      <a *ngIf="user" class="me-3 py-2 text-dark text-decoration-none" routerLink="dashboard">Admin Dashboard</a>
+      
+    </nav>
+    
+
+    
+</div>
+

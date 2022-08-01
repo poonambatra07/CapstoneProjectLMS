@@ -1,0 +1,36 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "wishlist": [
+    {
+      "userId": "62a2fad5a9af32d89f433e53",
+      "productId": 103,
+      "id": 103
+    },
+    {
+      "userId": "62a2fad5a9af32d89f433e53",
+      "productId": 101,
+      "id": 101
+    },
+    {
+      "userId": "62a2fad5a9af32d89f433e53",
+      "productId": 102,
+      "id": 102
+    }
+  ]
+}

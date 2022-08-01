@@ -1,0 +1,68 @@
+<div class="nav-scroller py-1 mb-2">
+    <nav class="nav d-flex justify-content-between">
+      <a class="p-2 link-secondary" routerLink="/dashboard">Products</a>
+      <a class="p-2 link-secondary" routerLink="/add-product">Add Products</a>
+      <a class="p-2 link-secondary" routerLink="/users">Users</a>
+      <a class="p-2 link-secondary" routerLink="/orders">Orders</a>
+      <a class="p-2 link-secondary" href="/reports">Reports</a>
+    </nav>
+  </div>
+  <div class="p-5 mb-2 bg-light rounded-3" ><h1 class="display-5 fw-bold">All Products</h1></div>
+<div class="p-5 mb-2 bg-light rounded-3" *ngFor="let product of products">
+    <div class="container-fluid py-5">
+      <div class="py-1 mb-2" style="float: left; width: 50%">
+        <p class="col-md-8 fs-4"><strong> Name</strong>:{{product['name']}}</p>
+        <p class="col-md-8 fs-4"><img src="{{product['image']}}" height="100" width="100"/></p>
+      </div>
+     
+      <div class="py-1 mb-2" style="float: right; width: 50%;">
+      <p class="col-md-8 fs-4"><strong>Brand</strong>{{product['brand']}}</p>
+      <p class="col-md-8 fs-4"><strong>Price</strong>:{{product['price'] | currency:'INR'}}</p>
+      <p class="col-md-8 fs-4"><strong>Description</strong>:{{product['description']|slice:0:50}}...</p>
+      </div>
+      <div class="container-fluid py-5">
+      <button class="btn btn-primary btn-lg" type="button" (click)="editProduct(product['_id'])">Edit Product</button>
+      <button class="btn btn-primary btn-lg" type="button" style="float: right" (click)="DeleteProduct(product['_id'])">Delete Product</button>
+      </div>
+    </div>
+    
+  <div class="col-md-8" id="update_{{product['_id']}}" *ngIf="EditProduct===product['_id']">
+    <main class="form-signin">
+        <form #EditForm="ngForm" (ngSubmit)="Edit(EditForm)" >
+          <h1 class="h3 mb-3 fw-normal">Update Product</h1>
+          <div class="form-floating">
+            <input type="text" class="form-control " [ngModel]="product['name']" [ngClass]="{'is-invalid':EditForm.controls['name']?.invalid && EditForm.controls['name']?.untouched}" name="name"  placeholder="Name" required>
+            <label for="floatingInput">Name</label>
+            <span class="invalid-feedback"> Name can't be empty.</span>
+          </div>
+          <div class="form-floating">
+            <input type="text" class="form-control " [ngModel]="product['price']" [ngClass]="{'is-invalid':EditForm.controls['price']?.invalid && EditForm.controls['name']?.untouched}" name="price"  placeholder="Price" required>
+            <label for="floatingInput">Price</label>
+            <span class="invalid-feedback"> Price can't be empty.</span>
+          </div>
+          <div class="form-floating">
+            <input type="text" class="form-control " [ngModel]="product['description']" [ngClass]="{'is-invalid':EditForm.controls['description']?.invalid && EditForm.controls['description']?.untouched}" name="description"  placeholder="Description" required>
+            <label for="floatingInput">Description</label>
+            <span class="invalid-feedback"> Description can't be empty.</span>
+          </div>
+          <div class="form-floating">
+            <input type="text" class="form-control " [ngModel]="product['image']" [ngClass]="{'is-invalid':EditForm.controls['image']?.invalid && EditForm.controls['image']?.untouched}" name="image"  placeholder="Image" required>
+            <label for="floatingInput">Image</label>
+            <span class="invalid-feedback"> Image can't be empty.</span>
+          </div>
+          <div class="form-floating">
+            <input type="text" class="form-control " [ngModel]="product['brand']" [ngClass]="{'is-invalid':EditForm.controls['brand']?.invalid && EditForm.controls['brand']?.untouched}" name="brand"  placeholder="brand" required>
+            <label for="floatingInput">Brand</label>
+            <span class="invalid-feedback"> Brand can't be empty.</span>
+          </div>
+          <input type="hidden" class="form-control " [ngModel]="product['_id']" name="_id"  >
+          <button class="w-100 btn btn-lg btn-primary" type="submit" [disabled]="EditForm.invalid">Edit</button>
+          
+          
+        </form>
+      </main>
+      
+</div>
+  </div>
+
+ 
